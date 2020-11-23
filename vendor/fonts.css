@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   src: url('../vendor/fonts/inter-400.woff2') format('woff2'), 
-       url('../vendor/fonts/inter-400.woff') format('woff')
+       url('../vendor/fonts/inter-400.woff') format('woff');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-style: normal;
   font-weight: 500;
   src: url('../vendor/fonts/inter-500.woff2') format('woff2'),
-       url('../vendor/fonts/inter-500.woff') format('woff')
+       url('../vendor/fonts/inter-500.woff') format('woff');
 }
 
 @font-face {
@@ -19,5 +19,5 @@
   font-style: normal;
   font-weight: 900;
   src: url('../vendor/fonts/inter-900.woff2') format('woff2'), 
-       url('../vendor/fonts/inter-900.woff') format('woff')
+       url('../vendor/fonts/inter-900.woff') format('woff');
 }
