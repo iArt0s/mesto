@@ -1,0 +1,10 @@
+.profile__image {
+
+ }
+
+
+@media (min-width: 1024px) {
+  .profile__image {
+margin-right: 30px;
+  }
+}
