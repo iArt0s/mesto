@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,86 +7,72 @@
   <title>mesto</title>
 </head>
 <body class="page">
-  <header class="header container">
+  <header class="header">
     <img src="./images/logo.svg" alt="картинка лого" class="header__logo hover">
-    <div class="header__line"></div>
+    <!-- <div class="header__line"></div> -->
   </header>
   <main>
     <section class="profile container">
-      <div class="profile__wrapper">
         <img src="./images/Avatar.png" alt="Фото профиля" class="profile__image">
         <div class="profile__credentials">
           <div class="profile__title-wrapper">
             <h1 class="profile__credentials-title">Жак-Ив Кусто</h1>
-            <img src="./images/Edit_Button.png" alt="кнопка Редактировать" class="profile__edit-button hover">
+            <button class="profile__edit-button hover"> </button>
           </div>
           <p class="profile__credentials-subtitle">Исследователь океана</p>
         </div>
-        <button class="profile__btn" type="button">
-          <img src="./images/plus.png" alt="Кнопка плюс" class="profile__btn-content hover">
+        <button class="profile__btn hover" type="button">
+          <img src="./images/plus.svg" alt="Кнопка плюс" class="profile__btn-content">
         </button>
-      </div>
     </section>
     <section class="gallery container">
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-6.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Карачаево-Черкесия</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-4.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Гора Эльбрус</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-3.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Домбай</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-4.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Гора Эльбрус</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-3.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Домбай</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
       <div class="card">
-        <div class="card__wrapper">
           <img src="./images/photo-grid-6.png" alt="картинка карточки" class="card__image">
           <div class="card__description">
             <h2 class="card__description-title">Карачаево-Черкесия</h2>
             <button class="card__button hover" type="button"></button>
           </div>
-        </div>
       </div>
     </section>
   </main>
-  <section class="footer container">
+  <footer class="footer">
     <span class="footer__copyright">© 2020 Mesto Russia</span>
-  </section>
+  </footer>
   <!-- popup -->
   <div class="popup">
     <form class="popup__container" name="popupform">
@@ -97,6 +83,6 @@
       <button class="popup__submit-button hover" type="submit">Сохранить</button>
     </form>
   </div>
+  <script src="./js/script.js"></script>
 </body>
-<script src="./js/script.js"></script>
 </html>

@@ -2,3 +2,10 @@
   margin-top: 48px;
   margin-bottom: 36px;
  }
+
+ @media (min-width: 1024px) {
+  .footer {
+  max-width: 880px;
+  margin: 48px auto 36px auto;
+  }
+}

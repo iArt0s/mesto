@@ -9,3 +9,13 @@
 
  }
 
+ @media (min-width: 1280px) {
+  .card {
+    margin-left: 0;
+    margin-right: 17px;
+  }
+  .card:nth-child(3n) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
