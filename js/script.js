@@ -27,10 +27,10 @@ const initialCards = [
 const profileTitle = document.querySelector('.profile__credentials-title');
 const profileSubtitle = document.querySelector('.profile__credentials-subtitle');
 const popup = document.querySelector('.popup');
-const editPopup = document.querySelector('.edit_popup');
-const addPopup = document.querySelector('.add_popup');
-const editPopupCloseBtn = document.querySelector('.edit_popup_close');
-const addPopupCloseBtn = document.querySelector('.add_popup_close');
+const editPopup = document.querySelector('.popup_edit');
+const addPopup = document.querySelector('.popup_add');
+const editPopupCloseBtn = document.querySelector('.popup_edit_close');
+const addPopupCloseBtn = document.querySelector('.popup__close_add');
 const imgPopupCloseBtn = document.querySelector('.popup__close-button_img');
 const editBtn = document.querySelector('.profile__edit-button');
 const addBtn = document.querySelector('.profile__btn');
@@ -40,7 +40,7 @@ const popupFieldPlace = document.querySelector('[name="place"]');
 const popupFieldLink = document.querySelector('[name="link"]');
 const addPopupSubmitBtn = document.querySelector('[name=popupformadd]');
 const formElement = document.querySelector('.popup__container');
-const imgPopup = document.querySelector('.img_popup');
+const imgPopup = document.querySelector('.popup_img');
 const popupImg = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__img-title');
 const cardsContainerElement = document.querySelector('.gallery');
@@ -72,23 +72,16 @@ function composeItem(item) {
   return newItem;
 }
 
-
-
-
-
 function renderList() {
   const cardsList = initialCards.map(composeItem);
   cardsContainerElement.append(...cardsList)
-  // console.log(...cardsList);
 } 
 renderList()
 
 
 function createNewCard (e) {
 
-
   e.preventDefault();
-
 
   const newCards = {
     name: popupFieldPlace.value,
@@ -102,25 +95,16 @@ function addNewCard(position, card) {
   position.prepend(card);
 }
 
-
 addPopupSubmitBtn.addEventListener('submit' , createNewCard)
-
-
-
-
-
 
 function openPopup(popup) {
 
   popup.classList.add('popup_opened');
-
   popupFieldnickname.value = profileTitle.textContent; 
   popupFieldinfo.value = profileSubtitle.textContent;
 }
 
 function openPopupImg(item) {
-
-
 
   popupImg.src = item.link;
   popupImg.alt = "картинка " + item.name;
@@ -135,8 +119,6 @@ editBtn.addEventListener('click', function(){
 addBtn.addEventListener('click', function() {
   openPopup(addPopup)
 }); 
-
-
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');

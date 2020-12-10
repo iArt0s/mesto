@@ -32,25 +32,25 @@
     <span class="footer__copyright">© 2020 Mesto Russia</span>
   </footer>
   <!-- popup -->
-  <div class="popup edit_popup">
+  <div class="popup popup_edit">
     <form class="popup__container" name="popupform">
-      <button class="popup__close-button edit_popup_close hover" type="button"></button>
+      <button class="popup__close-button popup_edit_close hover" type="button"></button>
       <h2 class="popup__container-title">Редактировать профиль</h2>
       <input type="text" name="nickname" value="" class="popup__field">
       <input type="text" name="info" value="" class="popup__field">
       <button class="popup__submit-button hover" type="submit">Сохранить</button>
     </form>
   </div>
-  <div class="popup add_popup">
+  <div class="popup popup_add">
     <form class="popup__container" name="popupformadd">
-      <button class="popup__close-button add_popup_close hover" type="button"></button>
+      <button class="popup__close-button popup__close_add hover" type="button"></button>
       <h2 class="popup__container-title">Новое место</h2>
       <input type="text" name="place" value="Название" class="popup__field">
       <input type="text" name="link" value="Ссылка на картинку" class="popup__field">
       <button class="popup__submit-button hover" type="submit">Создать</button>
     </form>
   </div>
-  <div class="popup img_popup">
+  <div class="popup popup_img">
     <div class="popup__container-img">
       <img src="./images/photo-1602525655920-664869d87021.jpeg" alt="картинка" class="popup__img">
       <span class="popup__img-title"></span>
@@ -60,7 +60,7 @@
     <!-- template -->
     <template class="template">
       <div class="card">
-          <img src= "./images/photo-1602525655920-664869d87021.jpeg" alt="" class="card__image">
+          <img src= "./images/photo-1602525655920-664869d87021.jpeg" alt="картинка" class="card__image">
           <button class="card__image-button hover"></button>
           <div class="card__description">
             <h2 class="card__description-title"></h2>
