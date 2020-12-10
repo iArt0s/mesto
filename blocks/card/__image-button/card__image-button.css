@@ -1,12 +1,12 @@
 .card__image-button {
   width: 18px;
-  height: 19px;  
+  height: 19px;
   position: absolute;
   margin-left: auto;
   top: 18px;
-  right: 18px;
   bottom: 0;
   left: 0;
+  right: 18px;
   background-image: url(../../../images/Trash.svg);
   background-repeat: no-repeat;
   background-position: center;
