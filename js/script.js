@@ -101,6 +101,8 @@ addPopupForm.addEventListener('submit' , createNewCard)
 function openPopup(popup) {
 
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  closePopupOverlay()
 }
 
 function openPopupImg(item) {
@@ -145,4 +147,42 @@ function formSubmitHandler(evt) {
     profileSubtitle.textContent = jobInput;
     closePopup(editPopup)
   }
+
+
+
+function closePopupEsc(e) {
+  const popupIsActive = document.querySelector('.popup_opened');
+  if (e.key == 'Escape' && popupIsActive) {
+      closePopup(popupIsActive);
+  }
+}
+
+function closePopupOverlay() {
+  const popupIsActive = document.querySelector('.popup_opened');
+  if (popupIsActive) {
+    popupIsActive.addEventListener('click', function (e) {
+          if (e.target === popupIsActive) {
+              closePopup(e.currentTarget);
+          }
+      });
+  }
+}
 formElement.addEventListener('submit', formSubmitHandler);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

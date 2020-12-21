@@ -1,73 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
-  <title>mesto</title>
-</head>
-<body class="page">
-  <header class="header">
-    <img src="./images/logo.svg" alt="картинка лого" class="header__logo hover">
-  </header>
-  <main>
-    <section class="profile container">
-        <img src="./images/Avatar.png" alt="Фото профиля" class="profile__image">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>mesto</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        src="./images/logo.svg"
+        alt="картинка лого"
+        class="header__logo hover"
+      />
+    </header>
+    <main>
+      <section class="profile container">
+        <img
+          src="./images/Avatar.png"
+          alt="Фото профиля"
+          class="profile__image"
+        />
         <div class="profile__credentials">
           <div class="profile__title-wrapper">
             <h1 class="profile__credentials-title">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button hover"> </button>
+            <button class="profile__edit-button hover"></button>
           </div>
           <p class="profile__credentials-subtitle">Исследователь океана</p>
         </div>
         <button class="profile__btn hover" type="button">
-          <img src="./images/plus.svg" alt="Кнопка плюс" class="profile__btn-content">
+          <img
+            src="./images/plus.svg"
+            alt="Кнопка плюс"
+            class="profile__btn-content"
+          />
         </button>
-    </section>
-    <section class="gallery container">
-
-    </section>
-  </main>
-  <footer class="footer">
-    <span class="footer__copyright">© 2020 Mesto Russia</span>
-  </footer>
-  <!-- popup -->
-  <div class="popup popup_edit">
-    <form class="popup__container" name="popupform">
-      <button class="popup__close-button popup__close-edit hover" type="button"></button>
-      <h2 class="popup__container-title">Редактировать профиль</h2>
-      <input type="text" name="nickname" value="" class="popup__field">
-      <input type="text" name="info" value="" class="popup__field">
-      <button class="popup__submit-button hover" type="submit">Сохранить</button>
-    </form>
-  </div>
-  <div class="popup popup_add">
-    <form class="popup__container" name="popupformadd">
-      <button class="popup__close-button popup__close-add hover" type="button"></button>
-      <h2 class="popup__container-title">Новое место</h2>
-      <input type="text" name="place"  value="" placeholder="Название" class="popup__field">
-      <input type="text" name="link" value="" placeholder="Ссылка на картинку" class="popup__field">
-      <button class="popup__submit-button hover" type="submit">Создать</button>
-    </form>
-  </div>
-  <div class="popup popup_img">
-    <div class="popup__container-img">
-      <img src="./images/photo-1602525655920-664869d87021.jpeg" alt="картинка" class="popup__img">
-      <span class="popup__img-title"></span>
-      <button class="popup__close-button popup__close-button_img hover" type="button"></button>
+      </section>
+      <section class="gallery container"></section>
+    </main>
+    <footer class="footer">
+      <span class="footer__copyright">© 2020 Mesto Russia</span>
+    </footer>
+    <!-- popup -->
+    <div class="popup popup_edit">
+      <form class="popup__container popup__form" name="popupform" novalidate>
+        <button
+          class="popup__close-button popup__close-edit hover"
+          type="button"
+        ></button>
+        <h2 class="popup__container-title">Редактировать профиль</h2>
+        <input
+          type="text"
+          name="nickname"
+          value=""
+          id="nickname"
+          class="popup__field popup__input"
+          required
+          minlength="2"
+          maxlength="40"
+        />
+        <span id="nickname-error" class="popup__error_visible"></span>
+        <input
+          type="text"
+          name="info"
+          value=""
+          id="info"
+          class="popup__field popup__input"
+          required
+          minlength="2"
+          maxlength="200"
+        />
+        <span id="info-error" class="popup__error_visible"></span>
+        <button class="popup__submit-button popup__button hover" type="submit">
+          Сохранить
+        </button>
+      </form>
     </div>
-  </div>
+    <div class="popup popup_add">
+      <form class="popup__container popup__form popup__form_add" name="popupformadd" novalidate>
+        <button
+          class="popup__close-button popup__close-add hover"
+          type="button"
+        ></button>
+        <h2 class="popup__container-title">Новое место</h2>
+        <input
+          type="text"
+          name="place"
+          value=""
+          placeholder="Название"
+          id="place"
+          class="popup__field popup__input popup__input_place"
+          required
+          minlength="2"
+          maxlength="30"
+        />
+        <span id="place-error" class="popup__error_visible"></span>
+        <input
+          type="url"
+          name="link"
+          value=""
+          placeholder="Ссылка на картинку"
+          id="link"
+          class="popup__field popup__input popup__input_link"
+          required
+        />
+        <span id="link-error" class="popup__error_visible"></span>
+        <button class="popup__submit-button popup__button hover" type="submit">
+          Создать
+        </button>
+      </form>
+    </div>
+    <div class="popup popup_img">
+      <div class="popup__container-img">
+        <img
+          src="./images/photo-1602525655920-664869d87021.jpeg"
+          alt="картинка"
+          class="popup__img"
+        />
+        <span class="popup__img-title"></span>
+        <button
+          class="popup__close-button popup__close-button_img hover"
+          type="button"
+        ></button>
+      </div>
+    </div>
     <!-- template -->
     <template class="template">
       <div class="card">
-          <img src= "./images/photo-1602525655920-664869d87021.jpeg" alt="картинка" class="card__image">
-          <button class="card__image-button hover"></button>
-          <div class="card__description">
-            <h2 class="card__description-title"></h2>
-            <button class="card__button hover" type="button"></button>
-          </div>
+        <img
+          src="./images/photo-1602525655920-664869d87021.jpeg"
+          alt="картинка"
+          class="card__image"
+        />
+        <button class="card__image-button hover"></button>
+        <div class="card__description">
+          <h2 class="card__description-title"></h2>
+          <button class="card__button hover" type="button"></button>
+        </div>
       </div>
     </template>
-  <script src="./js/script.js"></script>
-</body>
+    <script src="./js/validation.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
