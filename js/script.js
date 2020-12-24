@@ -118,19 +118,20 @@ function closePopupOverlay() {
       }
     });
   }
-function clearSpan() {
-  const span = document.querySelectorAll('.popup__error_visible');
-  span.forEach((span) => {
-      span.textContent = '';
-      const submitButton = editPopupForm.querySelector('.popup__button');
-      setButtonState(submitButton, true, validationConfig);
+
+
+
+function clearSpanError() {
+  const spans = [...document.querySelectorAll(`.${validationConfig.errorClass}`)];
+  spans.forEach((spans) => {
+      spans.textContent = '';
   });
 }
 
-function clearType() {
-  const error = document.querySelectorAll('.popup__input_type_error');
+function clearTypeError() {
+  const error = [...document.querySelectorAll(`.${validationConfig.inputErrorClass}`)];
   error.forEach((type) => {
-      type.classList.remove('popup__input_type_error');
+      type.classList.remove(validationConfig.inputErrorClass);
   });
 }
 
@@ -150,10 +151,14 @@ function openPopupImg(item) {
 editBtn.addEventListener('click', function () {
   popupFieldnickname.value = profileTitle.textContent;
   popupFieldinfo.value = profileSubtitle.textContent;
+  const submitButton = editPopupForm.querySelector(validationConfig.submitButtonSelector);
+  setButtonState(submitButton, editPopupForm.checkValidity(), validationConfig);
   openPopup(editPopup);
 });
 
 addBtn.addEventListener('click', function () {
+  const submitButton = editPopupForm.querySelector(validationConfig.submitButtonSelector);
+  setButtonState(submitButton, addPopupForm.checkValidity(), validationConfig);
   openPopup(addPopup);
 });
 
@@ -161,17 +166,18 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
   document.removeEventListener('click', closePopupOverlay);
-  addPopupForm.reset();
-  clearSpan();
-  clearType();
+  clearSpanError();
+  clearTypeError();
 }
 editPopupCloseBtn.addEventListener('click', function () {
   closePopup(editPopup);
 });
 
 addPopupCloseBtn.addEventListener('click', function () {
+  addPopupForm.reset();
   closePopup(addPopup);
 });
+
 
 imgPopupCloseBtn.addEventListener('click', function () {
   closePopup(imgPopup);
