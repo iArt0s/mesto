@@ -55,10 +55,9 @@ export default class FormValidator {
   _setEventListener(form) {
     const inputList = form.querySelectorAll(this._inputSelector);
     inputList.forEach((input) => {
-      input.addEventListener('input', (e) => {
+      input.addEventListener('input', () => {
         this._checkInputValidity(form, input);
         this.setButtonState(form.checkValidity());
-        // xz xz
       });
     });
   }

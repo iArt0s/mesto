@@ -1,5 +1,5 @@
-import Card from './Card.js'
-import FormValidator from './FormValidator.js'
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 const initialCards = [
     {
         name: 'Архыз',
@@ -36,7 +36,6 @@ const profileTitle = document.querySelector('.profile__credentials-title');
 const profileSubtitle = document.querySelector(
     '.profile__credentials-subtitle'
 );
-const popup = document.querySelector('.popup');
 const editPopup = document.querySelector('.popup_edit');
 const addPopup = document.querySelector('.popup_add');
 const editPopupCloseBtn = document.querySelector('.popup__close-edit');
@@ -61,21 +60,24 @@ initialCards.forEach((item) =>{
     const card = new Card(item, '.template', openPopupImg);
     const cardElements = card.generateCard();
     cardsContainerElement.append(cardElements);
- })
+ });
 
 
 function createNewCard(e) {
-    e.preventDefault();
 
     const newCards = {
         name: popupFieldPlace.value,
         link: popupFieldLink.value,
     };
-    const card = new Card(newCards, '.template', openPopupImg);
-    const cardElements = card.generateCard();
-    addNewCard(cardsContainerElement, cardElements);
+    addNewCard(cardsContainerElement, createCard(newCards));
     closePopup(addPopup);
     addPopupForm.reset();
+}
+
+function createCard(newCards) {
+    const card = new Card(newCards, '.template', openPopupImg);
+    const cardElements = card.generateCard();
+    return cardElements;
 }
 
 function addNewCard(position, card) {
@@ -104,7 +106,7 @@ function closePopupOverlay() {
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupEsc);
-    closePopupOverlay();
+    popup.addEventListener('click', closePopupOverlay);
 }
 
 function openPopupImg(item) {
@@ -133,7 +135,7 @@ addBtn.addEventListener('click', function () {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupEsc);
-    document.removeEventListener('click', closePopupOverlay);
+    popup.removeEventListener('click', closePopupOverlay);
 }
 
 editPopupCloseBtn.addEventListener('click', function () {
@@ -154,8 +156,7 @@ imgPopupCloseBtn.addEventListener('click', function () {
     closePopup(imgPopup);
 });
 
-function formSubmitHandler(evt) {
-    evt.preventDefault();
+function formSubmitHandler() {
 
     const nameInput = popupFieldnickname.value;
     profileTitle.textContent = nameInput;

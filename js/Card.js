@@ -11,7 +11,6 @@ export default class Card {
       .querySelector(this._cardSelector)
       .content.querySelector('.card')
       .cloneNode(true);
-      console.log(this._cardSelector) 
     return cardTemplate;
   }
 
