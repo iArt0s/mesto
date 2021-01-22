@@ -43,6 +43,7 @@ export default class Card {
   }
 
   _trash() {
-    this._card.closest('.card').remove()
+    this._card.remove();
+    this._element = null;
   }
 }

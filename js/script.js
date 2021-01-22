@@ -1,37 +1,7 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-const initialCards = [
-    {
-        name: 'Архыз',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    },
-    {
-        name: 'Челябинская область',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    },
-    {
-        name: 'Иваново',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    },
-    {
-        name: 'Камчатка',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    },
-    {
-        name: 'Холмогорский район',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    },
-    {
-        name: 'Байкал',
-        link:
-            'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    },
-];
+import {initialCards} from './initialCards.js';
+
 const profileTitle = document.querySelector('.profile__credentials-title');
 const profileSubtitle = document.querySelector(
     '.profile__credentials-subtitle'
@@ -56,14 +26,13 @@ const popupImgTitle = document.querySelector('.popup__img-title');
 const cardsContainerElement = document.querySelector('.gallery');
 
 
-initialCards.forEach((item) =>{
-    const card = new Card(item, '.template', openPopupImg);
-    const cardElements = card.generateCard();
-    cardsContainerElement.append(cardElements);
- });
+function initCards() {
+    initialCards.map((newCards) => {
+        cardsContainerElement.append(createCard(newCards));
+    });
+}
 
-
-function createNewCard(e) {
+function createNewCard() {
 
     const newCards = {
         name: popupFieldPlace.value,
@@ -93,15 +62,12 @@ function closePopupEsc(e) {
     }
 }
 
-function closePopupOverlay() {
-    const popupIsActive = document.querySelector('.popup_opened');
-    popupIsActive.addEventListener('click', function (e) {
-        if (e.target === popupIsActive) {
-            closePopup(e.target);
-        }
-    });
+function closePopupOverlay(e) {
+    const popupIsActive = e.target;
+    if (popupIsActive.classList.contains('popup_opened')) {
+        closePopup(popupIsActive);
+    }
 }
-
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -126,9 +92,9 @@ editBtn.addEventListener('click', function () {
 });
 
 addBtn.addEventListener('click', function () {
-    editFormValidator.clearSpanError();
-    editFormValidator.clearTypeError();
-    editFormValidator.setButtonState(false);
+    addFormValidator.clearSpanError();
+    addFormValidator.clearTypeError();
+    addFormValidator.setButtonState(false);
     openPopup(addPopup);
 });
 
@@ -164,6 +130,8 @@ function formSubmitHandler() {
     profileSubtitle.textContent = jobInput;
     closePopup(editPopup);
 }
+
+initCards()
 
 formElement.addEventListener('submit', formSubmitHandler);
 
