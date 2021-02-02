@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./pages/index.css" />
     <title>mesto</title>
   </head>
   <body class="page">
     <header class="header">
       <img
-        src="./images/logo.svg"
+        src="<%=require('./images/logo.svg')%>"
         alt="картинка лого"
         class="header__logo hover"
       />
@@ -17,7 +16,7 @@
     <main>
       <section class="profile container">
         <img
-          src="./images/Avatar.png"
+          src="<%=require('./images/Avatar.png')%>"
           alt="Фото профиля"
           class="profile__image"
         />
@@ -30,7 +29,7 @@
         </div>
         <button class="profile__btn hover" type="button">
           <img
-            src="./images/plus.svg"
+            src="<%=require('./images/plus.svg')%>"
             alt="Кнопка плюс"
             class="profile__btn-content"
           />
@@ -87,7 +86,7 @@
         <h2 class="popup__container-title">Новое место</h2>
         <input
           type="text"
-          name="place"
+          name="name"
           value=""
           placeholder="Название"
           id="place"
@@ -115,7 +114,7 @@
     <div class="popup popup_img">
       <div class="popup__container-img">
         <img
-          src="./images/photo-1602525655920-664869d87021.jpeg"
+          src="<%=require('./images/logo.svg')%>"
           alt="картинка"
           class="popup__img"
         />
@@ -130,7 +129,7 @@
     <template class="template">
       <div class="card">
         <img
-          src="./images/photo-1602525655920-664869d87021.jpeg"
+          src="<%=require('./images/logo.svg')%>"
           alt="картинка"
           class="card__image"
         />

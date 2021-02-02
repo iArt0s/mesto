@@ -3,6 +3,7 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js'
 import PopupWithImage from '../components/PopupWithImage.js'
 import Section from '../components/Section.js';
+import '../pages/index.css';
 import UserInfo from '../components/UserInfo.js';
 import { editBtn, addBtn, popupFieldnickname, popupFieldinfo, editPopupForm, addPopupForm, cardsContainerElement, initialCards, validationConfig } from '../utils/constants.js'
 
