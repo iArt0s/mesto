@@ -17,22 +17,30 @@ const editPopup = new PopupWithForm('.popup_edit', (data) => {
 });
 editPopup.setEventListeners();
 
-const addPopup = new PopupWithForm('.popup_add', (item) => {
-    const card = new Card(item, '.template', (item) => {popupImg.open(item)});
+function createCard(item, cardSelector, openPopupImg) {
+    const card = new Card(item, cardSelector, openPopupImg);
     const cardElements = card.generateCard();
-    cardList.addItemEnd(cardElements);
+    return cardElements
+}
+
+const addPopup = new PopupWithForm('.popup_add', (item) => {
+    cardList.addItemEnd(createCard(item, '.template', (item) => {
+        popupImg.open(item)
+    }));
 })
 addPopup.setEventListeners()
 
 const cardList = new Section({
         items: initialCards,
         renderer: (item) => {
-            const card = new Card(item, '.template', (item) => {popupImg.open(item)});
-            const cardElements = card.generateCard();
-            cardList.addItem(cardElements)
+            cardList.addItem(createCard(item, '.template', (item) => {
+                popupImg.open(item)
+            }));
         }
     }, cardsContainerElement);
 cardList.renderInitialItems()
+
+
 
 addBtn.addEventListener('click', () => {
     addPopup.open();
@@ -42,8 +50,9 @@ addBtn.addEventListener('click', () => {
 });
 
 editBtn.addEventListener('click',() => {
-    popupFieldnickname.value = userInfo.getUserInfo().name
-    popupFieldinfo.value = userInfo.getUserInfo().about
+    const info = userInfo.getUserInfo();
+    popupFieldnickname.value = info.name;
+    popupFieldinfo.value = info.about;
     editPopup.open();
     editFormValidator.clearSpanError();
     editFormValidator.clearTypeError()
