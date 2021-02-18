@@ -15,11 +15,14 @@
     </header>
     <main>
       <section class="profile container">
-        <img
+        <a href="#" class="profile__container">        
+          <img
           src="<%=require('./images/Avatar.png')%>"
           alt="Фото профиля"
-          class="profile__image"
-        />
+          class="profile__image profile__image-btn"
+          />
+        </a>
+
         <div class="profile__credentials">
           <div class="profile__title-wrapper">
             <h1 class="profile__credentials-title">Жак-Ив Кусто</h1>
@@ -50,7 +53,7 @@
         <h2 class="popup__container-title">Редактировать профиль</h2>
         <input
           type="text"
-          name="nickname"
+          name="name"
           value=""
           id="nickname"
           placeholder="Имя"
@@ -59,10 +62,13 @@
           minlength="2"
           maxlength="40"
         />
-        <span id="nickname-error" class=" popup__error popup__error_visible"></span>
+        <span
+          id="nickname-error"
+          class="popup__error popup__error_visible"
+        ></span>
         <input
           type="text"
-          name="info"
+          name="about"
           value=""
           id="info"
           placeholder="Вид деятельности"
@@ -78,7 +84,11 @@
       </form>
     </div>
     <div class="popup popup_add">
-      <form class="popup__container popup__form popup__form_add" name="popupformadd" novalidate>
+      <form
+        class="popup__container popup__form popup__form_add"
+        name="popupformadd"
+        novalidate
+      >
         <button
           class="popup__close-button popup__close-add hover"
           type="button"
@@ -125,6 +135,50 @@
         ></button>
       </div>
     </div>
+    <div class="popup popup_update-avatar">
+      <form
+        class="popup__container popup__form"
+        name="update_avatar-form"
+        novalidate
+      >
+        <button
+          class="popup__close-button button popup__close-button_update-avatar"
+          aria-label="Закрыть"
+          type="button"
+        ></button>
+        <h2 class="popup__container-title popup__container-title_add">
+          Обновить аватар
+        </h2>
+        <label class="popup__label">
+          <input
+            id="avatar__input"
+            type="url"
+            name="avatar"
+            value=""
+            placeholder="Ссылка на картинку"
+            class="popup__field popup__field_add popup__image-link popup__input"
+            required
+          />
+          <span id="avatar__input-error"></span>
+        </label>
+        <button
+          class="popup__submit-button button popup__button"
+          type="submit"
+          aria-label="Создать карточку"
+        >
+          Сохранить
+        </button>
+      </form>
+    </div>
+    <div class="popup popup_delete">
+      <form class="popup__container">
+          <button class="popup__close-button button popup__close-button_img" type="button"
+              aria-label="Закрыть попап"></button>
+          <h2 class="popup__container-title popup__title_delete">Вы уверены?</h2>
+          <button class="popup__submit-button button popup__button" type="submit"
+              aria-label="Удалить карточку">Да</button>
+      </form>
+    </div>
     <!-- template -->
     <template class="template">
       <div class="card">
@@ -136,11 +190,14 @@
         <button class="card__image-button hover"></button>
         <div class="card__description">
           <h2 class="card__description-title"></h2>
-          <button class="card__button hover" type="button"></button>
+          <div class="card__like-container">
+            <button class="card__like-button hover" type="button"></button>
+            <p class="card__like"></p>
+        </div>
         </div>
       </div>
     </template>
     <!-- <script src="./js/validation.js"></script> -->
-    <script  type = "module" src="./pages/script.js"></script>
+    <script type="module" src="./pages/script.js"></script>
   </body>
 </html>
